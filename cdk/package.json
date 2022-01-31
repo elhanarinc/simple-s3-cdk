@@ -1,8 +1,8 @@
 {
-  "name": "simple-s3-cdk",
+  "name": "cdk",
   "version": "0.1.0",
   "bin": {
-    "simple-s3-cdk": "bin/simple-s3-cdk.js"
+    "cdk": "bin/cdk.js"
   },
   "scripts": {
     "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
