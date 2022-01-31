@@ -12,7 +12,6 @@ class CdkStack extends Stack {
    */
   constructor(scope, id, props) {
     super(scope, id, props);
-
     
     // get environment and application info
     const clientPrefix = `${props.env.clientName}-${props.env.environment}`;
