@@ -1,12 +1,8 @@
-# Welcome to your CDK JavaScript project!
+# Simple S3 + Node.js Project
 
-This is a blank project for JavaScript development with CDK.
+This project assumes you had already installed these tools:
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app. The build step is not required when using JavaScript.
-
-## Useful commands
-
- * `npm run test`         perform the jest unit tests
- * `cdk deploy`           deploy this stack to your default AWS account/region
- * `cdk diff`             compare deployed stack with current state
- * `cdk synth`            emits the synthesized CloudFormation template
+1. [Docker](https://www.docker.com/)
+2. [Nodejs](https://nodejs.org/en/download/)
+3. [AWS cli](https://aws.amazon.com/cli/?nc1=h_ls)
+4. [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html)

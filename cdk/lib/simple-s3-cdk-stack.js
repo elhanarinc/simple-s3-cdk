@@ -1,4 +1,5 @@
 const { Stack, Duration } = require('aws-cdk-lib');
+const {  } = require('aws-cdk-lib/aws-s3');
 // const sqs = require('aws-cdk-lib/aws-sqs');
 
 class SimpleS3CdkStack extends Stack {
