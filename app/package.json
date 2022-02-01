@@ -1,14 +1,31 @@
 {
   "name": "simple-s3",
   "version": "1.0.0",
+  "author": "Arinc Elhan <elhanarinc@gmail.com>",
+  "license": "ISC",
   "description": "Simple server with AWS S3 support",
+  "main": "server.js",
   "private": true,
   "scripts": {
-    "start": "nodemon --inspect server.js"
+    "start:dev": "nodemon --inspect server.js",
+    "start": "NODE_ENV=production node server.js",
+    "test": "jest --forceExit"
   },
   "engines": {
     "node": "14.17.3",
     "npm": "6.14.15"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "testTimeout": 30000
   },
   "dependencies": {
     "aws-sdk": "^2.1066.0",
@@ -18,6 +35,8 @@
     "crypto": "^1.0.1",
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
-    "nodemon": "^2.0.15"
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

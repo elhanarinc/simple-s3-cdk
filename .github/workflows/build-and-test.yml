@@ -1,0 +1,44 @@
+name: Build And Test
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  REGION: ${{ secrets.REGION }}
+  ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+  SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+  BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+  PORT: ${{ secrets.PORT }}
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repo
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Install nodejs
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.17.3'
+
+      # Install Jest
+      - name: Install jest
+        run: npm install -g jest
+
+      # Install npm dependecies
+      - name: Install npm dependencies
+        working-directory: ./app
+        run: npm install
+
+      # Run tests
+      - name: Run Tests
+        working-directory: ./app
+        run: npm test
+        env:
+          CI: true
+          ISOLATE: true
