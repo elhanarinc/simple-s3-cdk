@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "6ebdaedb-0e72-44a0-86f7-7b18db4ef5e9",
+		"name": "picus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add new object to s3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"test\": \"ok8\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "CdkSt-simpl-1B0LTS6HUFLZD-410555775.eu-central-1.elb.amazonaws.com/picus/put",
+					"host": [
+						"CdkSt-simpl-1B0LTS6HUFLZD-410555775",
+						"eu-central-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"picus",
+						"put"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get s3 object key-value pairs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "CdkSt-simpl-1B0LTS6HUFLZD-410555775.eu-central-1.elb.amazonaws.com/picus/list",
+					"host": [
+						"CdkSt-simpl-1B0LTS6HUFLZD-410555775",
+						"eu-central-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"picus",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get s3 specific object",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "CdkSt-simpl-1B0LTS6HUFLZD-410555775.eu-central-1.elb.amazonaws.com/picus/get/0a1dea90997f867b124039ea5fbbd328baef9629",
+					"host": [
+						"CdkSt-simpl-1B0LTS6HUFLZD-410555775",
+						"eu-central-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"picus",
+						"get",
+						"0a1dea90997f867b124039ea5fbbd328baef9629"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "CdkSt-simpl-1B0LTS6HUFLZD-410555775.eu-central-1.elb.amazonaws.com/healthcheck",
+					"host": [
+						"CdkSt-simpl-1B0LTS6HUFLZD-410555775",
+						"eu-central-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

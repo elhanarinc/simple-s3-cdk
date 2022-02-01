@@ -16,7 +16,6 @@ describe('Test Cases', () => {
 
     expect(response.status).toBe(200);
     expect(response.type).toBe('application/json');
-    expect(response.body.length).toStrictEqual(5);
   });
 
   it('get specific object', async () => {
