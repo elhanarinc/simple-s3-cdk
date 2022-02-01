@@ -38,7 +38,7 @@ class CdkStack extends Stack {
     // create container with docker image
     const container = taskDefinition.addContainer(`${clientPrefix}-container`, {
       image: ecs.ContainerImage.fromAsset(`${__dirname}/../../app`),
-      memoryLimitMiB: 512,
+      memoryLimitMiB: 256,
       cpu: 256,
       environment: {
         S3_REGION: props.env.appRegion,
@@ -50,7 +50,7 @@ class CdkStack extends Stack {
     });
 
     // add port 80 to container
-    container.addPortMappings({ containerPort: 80, hostPort: 80 });
+    container.addPortMappings({ hostPort: 0, containerPort: 80 });
 
     // create ecs service for deploying task
     const service = new ecs.Ec2Service(this, `${clientPrefix}-service`, {

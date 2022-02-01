@@ -25,10 +25,6 @@ app.get('/healthcheck', (_, res) => {
   return res.status(200).json({'status': 'OK'});
 });
 
-app.get('/hello', (_, res) => {
-  return res.status(200).json({'status': 'hello'});
-});
-
 app.get('/picus/list', async (_, res) => {
   const bucketParams = {
     Bucket : BUCKET_NAME,
