@@ -12,17 +12,21 @@ app.use(cors());
 
 const AWS = require('aws-sdk');
 AWS.config.update({
-  region: process.env.REGION,
-  accessKeyId: process.env.ACCESS_KEY_ID,
-  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.S3_REGION,
+  accessKeyId: process.env.S3_ACCESS_KEY_ID,
+  secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
 });
 
-const BUCKET_NAME = process.env.BUCKET_NAME;
+const BUCKET_NAME = process.env.S3_BUCKET_NAME;
 
 const s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
 app.get('/healthcheck', (_, res) => {
   return res.status(200).json({'status': 'OK'});
+});
+
+app.get('/hello', (_, res) => {
+  return res.status(200).json({'status': 'hello'});
 });
 
 app.get('/picus/list', async (_, res) => {

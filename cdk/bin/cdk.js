@@ -19,10 +19,10 @@ new CdkStack(app, 'CdkStack', {
     clientName: process.env.CDK_CLIENT_NAME,
     environment: process.env.CDK_PROJECT_ENV,
 
-    appRegion: process.env.REGION,
-    appKey: process.env.ACCESS_KEY_ID,
-    appSecret: process.env.SECRET_ACCESS_KEY,
-    appBucketName: process.env.BUCKET_NAME,
+    appRegion: process.env.S3_REGION,
+    appKey: process.env.S3_ACCESS_KEY_ID,
+    appSecret: process.env.S3_SECRET_ACCESS_KEY,
+    appBucketName: process.env.S3_BUCKET_NAME,
     appPort: process.env.PORT
   },
 

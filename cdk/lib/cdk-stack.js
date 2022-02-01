@@ -41,10 +41,10 @@ class CdkStack extends Stack {
       memoryLimitMiB: 512,
       cpu: 256,
       environment: {
-        REGION: props.env.appRegion,
-        ACCESS_KEY_ID: props.env.appKey,
-        SECRET_ACCESS_KEY: props.env.appSecret,
-        BUCKET_NAME: props.env.appBucketName,
+        S3_REGION: props.env.appRegion,
+        S3_ACCESS_KEY_ID: props.env.appKey,
+        S3_SECRET_ACCESS_KEY: props.env.appSecret,
+        S3_BUCKET_NAME: props.env.appBucketName,
         PORT: props.env.appPort
       }
     });

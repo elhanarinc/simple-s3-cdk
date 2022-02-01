@@ -1,0 +1,51 @@
+name: Deploy to ECS
+
+on:
+  workflow_run:
+    workflows: ["Build And Test"]
+    types:
+      - completed
+
+env:
+  S3_REGION: ${{ secrets.S3_REGION }}
+  S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+  S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+  S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+  PORT: ${{ secrets.PORT }}
+  CDK_CLIENT_NAME: ${{ secrets.CDK_CLIENT_NAME }}
+  CDK_DEPLOY_ACCOUNT: ${{ secrets.CDK_DEPLOY_ACCOUNT }}
+  CDK_DEPLOY_REGION: ${{ secrets.CDK_DEPLOY_REGION }}
+  CDK_PROJECT_ENV: ${{ secrets.CDK_PROJECT_ENV }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: cdk diff
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'diff'
+          working_dir: './cdk'
+          actions_comment: true
+
+      - name: cdk deploy
+        uses: youyo/aws-cdk-github-actions@v2
+        with:
+          cdk_subcommand: 'deploy'
+          working_dir: './cdk'
+          cdk_args: '--require-approval never'
+          actions_comment: false
+
+      # - name: cdk synth
+      #   uses: youyo/aws-cdk-github-actions@v2
+      #   with:
+      #     cdk_subcommand: 'synth'
+      #     working_dir: './cdk'
+      
